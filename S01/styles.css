@@ -3,8 +3,16 @@
   padding: 0;
 }
 
-body {
+main {
+  width: 100%;
+}
+
+.container-home {
   background-color: rgb(255, 208, 196);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 0fr 1fr;
+  grid-auto-rows: 50px;
 }
 
 .logo {
@@ -45,9 +53,6 @@ body {
 .nav-links a:hover {
   transition: 300ms;
   background-color: rgb(255, 208, 196);
-}
-
-header {
 }
 
 .title {
@@ -95,4 +100,25 @@ header {
 .container-video p {
   padding: 20px;
   width: 560px;
+}
+
+footer {
+  background-color: rgb(247, 135, 107);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-footer {
+  height: 25px;
+  margin: 5px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.h5-footer {
+  color: aliceblue;
+  font-size: 15px;
 }
