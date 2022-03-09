@@ -43,6 +43,7 @@ body {
 }
 
 .nav-links a:hover {
+  transition: 300ms;
   background-color: rgb(255, 208, 196);
 }
 
