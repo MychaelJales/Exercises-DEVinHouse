@@ -10,9 +10,12 @@ body {
 .title {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
-  color: darkblue;
+  color: rgb(255, 115, 0);
   text-align: center;
   padding: 20px;
+  background-image: url("https://img.freepik.com/vetores-gratis/fundo-pintado-a-mao-em-azul-degrade_23-2148421198.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .paragraph {
