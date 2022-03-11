@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-img {
+  background-image: url("background.png");
+  width: 98vw;
+  height: 1000px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
