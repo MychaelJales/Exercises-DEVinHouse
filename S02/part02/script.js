@@ -1,12 +1,15 @@
 // alert('Houston, temos um problema!');
 
+const sobrenome = prompt('Qual seu sobrenome?');
 const nome = prompt('Qual seu nome?');
-const idade = Number(prompt('Qual sua idade?'));
-const cidade = prompt('Qual sua cidade?');
 
-console.log(`Seu nome é: ${nome}.`);
-console.log(`Sua idade é: ${idade}.`);
-console.log(`Sua cidade é: ${cidade}.`);
+alert(`${nome} ${sobrenome}`);
+// const idade = Number(prompt('Qual sua idade?'));
+// const cidade = prompt('Qual sua cidade?');
+
+// console.log(`Seu nome é: ${nome}.`);
+// console.log(`Sua idade é: ${idade}.`);
+// console.log(`Sua cidade é: ${cidade}.`);
 
 document.querySelector('.text-input').innerHTML = `Seu nome é: ${nome} `;
 
