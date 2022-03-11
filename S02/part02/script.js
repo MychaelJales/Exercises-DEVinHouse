@@ -1,4 +1,10 @@
-alert('Houston, temos um problema!');
+// alert('Houston, temos um problema!');
+
+const nome = prompt();
+
+console.log(nome);
+
+document.querySelector('.text-input').innerHTML = `Seu nome é: ${nome} `;
 
 const onClickBtn = () => {
   const clickBtn = confirm('Deseja realmente clickar ?');
