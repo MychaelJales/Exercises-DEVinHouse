@@ -35,7 +35,7 @@
         <p class="text-description-2">Solicite já o seu preenchendo o formulário.</p>
       </div>
       <div class="container-form">
-        <form>
+        <form action="#">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label class="label" for="inputEmail4">Email</label>
@@ -47,12 +47,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="label" for="inputAddress">Endereço do esconderijo principal</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0" required>
+            <label class="label" for="inputName">Nome Completo</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Leon Scott Kennedy" required>
           </div>
           <div class="form-group">
-            <label class="label" for="inputAddress2">Endereço do esconderijo secundário</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc." required>
+            <label class="label" for="inputAddress">Endereço do seu esconderijo</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0" required>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -77,10 +77,11 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-danger">Enviar</button>
+          <button type="submit" id="btn-submit" class="btn btn-danger">Enviar</button>
         </form>
       </div>
     </div>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
