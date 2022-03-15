@@ -43,3 +43,16 @@ const calcP = ({ target }) => {
   }
   response.innerText = `Resposta da ${typeOperation}: ${result}`;
 }
+
+// exercicio 5
+window.onload = () => {
+  const response4 = document.getElementById('response4');
+  let currentTime = new Date;
+
+  response4.innerText = `Hora: ${currentTime.getHours()}:${currentTime.getMinutes()} `;
+  setInterval(() => {
+    currentTime = new Date;
+    response4.innerText = `Hora: ${currentTime.getHours()}:${currentTime.getMinutes()} `;
+    console.log(currentTime.getSeconds());
+  }, 1000)
+};
