@@ -1,3 +1,4 @@
+// exercício 1
 /* const nome = prompt('Qual seu nome?');
 const idade = Number(prompt('Qual sua idade?'));
 
@@ -9,7 +10,8 @@ if (querPraticar) {
   alert(`${nome}, de ${idade} anos, não quer praticar esportes`);
 } */
 
-const ePar = () => {
+// exercício 2
+/* const ePar = () => {
   const num = Number(document.getElementById('input-num').value);
   const response = document.getElementById('response');
   if ((num % 2) === 0 ) {
@@ -17,4 +19,14 @@ const ePar = () => {
   } else {
     response.innerText = 'É ímpar';
   }
+} */
+
+// exercício 3
+const calc = ({ target }) => {
+  const num1 = Number(document.getElementById('input-num1').value);
+  const num2 = Number(document.getElementById('input-num2').value);
+  const response = document.getElementById('response');
+  const operator = target.value;
+  const operation = eval(`${num1} ${operator} ${num2}`);
+  response.innerText = `Resposta: ${num1} ${operator} ${num2} = ${operation}`;
 }
