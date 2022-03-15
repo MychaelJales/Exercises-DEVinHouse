@@ -53,6 +53,26 @@ window.onload = () => {
   setInterval(() => {
     currentTime = new Date;
     response4.innerText = `Hora: ${currentTime.getHours()}:${currentTime.getMinutes()} `;
-    console.log(currentTime.getSeconds());
   }, 1000)
 };
+
+// exercício 6
+const calcAge = () => {
+  const dateInput = document.getElementById('input-date').value;
+  const response = document.getElementById('response5');
+  currentTime = new Date;
+  const dayActual = currentTime.getDate();
+  const monthActual = currentTime.getMonth() + 1;
+  const yearActual = currentTime.getFullYear();
+  const dateInputFormat = dateInput.split('-');
+  let age;
+  if (monthActual > Number(dateInputFormat[1])) {
+    age = Number(yearActual) - Number(dateInputFormat[0]);
+  } else if (dayActual >= Number(dateInputFormat[2])) {
+    age = Number(yearActual) - Number(dateInputFormat[0]);
+  } else {
+    age = Number(yearActual) - Number(dateInputFormat[0]) - 1;
+  }
+  response.innerText = `Sua idade é: ${age} anos`;
+}
+
