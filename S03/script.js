@@ -54,6 +54,24 @@ window.onload = () => {
     currentTime = new Date;
     response4.innerText = `Hora: ${currentTime.getHours()}:${currentTime.getMinutes()} `;
   }, 1000)
+
+  // exercício 7
+  const ex7 = () => {
+    const response6 = document.getElementById('response6');
+    const dayActual = currentTime.getDate();
+    const monthActual = currentTime.getMonth() + 1;
+    if ((monthActual == 12 && dayActual >= 22) || (monthActual <= 3 && dayActual <= 21)) {
+      response6.innerText = 'Verão';
+    } else if ((monthActual == 3 && dayActual >= 22) || (monthActual <= 6 && dayActual <= 21)) {
+      response6.innerText = 'Outono';
+    } else if ((monthActual == 6 && dayActual >= 22) || (monthActual <= 9 && dayActual <= 21)) {
+      response6.innerText = 'Inverno';
+    } else {
+      response6.innerText = 'Primavera';
+    }
+  }
+
+  ex7();
 };
 
 // exercício 6
@@ -75,4 +93,6 @@ const calcAge = () => {
   }
   response.innerText = `Sua idade é: ${age} anos`;
 }
+
+// exercício 7 Dentro do onload do ex 5
 
