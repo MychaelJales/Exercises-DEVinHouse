@@ -92,7 +92,30 @@ const calcAge = () => {
     age = Number(yearActual) - Number(dateInputFormat[0]) - 1;
   }
   response.innerText = `Sua idade é: ${age} anos`;
-}
+};
 
 // exercício 7 Dentro do onload do ex 5
 
+// exércício 8
+const inputList = () => {
+  const itemList = document.getElementById('input-list');
+  const list = document.getElementById('list');
+  const liElement = document.createElement('li');
+  
+  if (!itemList.value) {
+    alert('Insira algum item para lista')
+  } else {
+    /* btnRemove.type = 'button';
+    btnRemove.id = "removeItem";
+    btnRemove.innerText = 'Remover'
+    liElement.appendChild(btnRemove); */
+    liElement.innerHTML = `${itemList.value} <button type="button" onClick="removeItem(event)">Remover</button>`;
+    list.appendChild(liElement);
+    itemList.value = '';
+  }
+};
+
+const removeItem = ({ target: { parentNode } }) => {
+  console.log(parentNode);
+  parentNode.remove();
+}
