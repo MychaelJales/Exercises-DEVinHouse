@@ -119,7 +119,6 @@ const saveItens = () => {
   const list = document.getElementById('list').children;
   const arrayItens = [];
   for (let i = 0; i < list.length; i += 1) {
-    // localStorage.setItem(`ìtem${i}`, itens[i].innerHTML);
     arrayItens.push(list[i].innerHTML);
     localStorage.setItem('itens', JSON.stringify(arrayItens));
   }
