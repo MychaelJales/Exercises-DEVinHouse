@@ -105,17 +105,42 @@ const inputList = () => {
   if (!itemList.value) {
     alert('Insira algum item para lista')
   } else {
-    /* btnRemove.type = 'button';
-    btnRemove.id = "removeItem";
-    btnRemove.innerText = 'Remover'
-    liElement.appendChild(btnRemove); */
     liElement.innerHTML = `${itemList.value} <button type="button" onClick="removeItem(event)">Remover</button>`;
     list.appendChild(liElement);
     itemList.value = '';
   }
+  saveItens();
 };
 
-const removeItem = ({ target: { parentNode } }) => {
-  console.log(parentNode);
-  parentNode.remove();
+// exercício 9 e 10
+
+const saveItens = () => {
+  localStorage.clear();
+  const list = document.getElementById('list').children;
+  const arrayItens = [];
+  for (let i = 0; i < list.length; i += 1) {
+    // localStorage.setItem(`ìtem${i}`, itens[i].innerHTML);
+    arrayItens.push(list[i].innerHTML);
+    localStorage.setItem('itens', JSON.stringify(arrayItens));
+  }
 }
+
+const removeItem = ({ target: { parentNode } }) => {
+  parentNode.remove();
+  saveItens();
+}
+
+const loadingItens = () => {
+  const itens = JSON.parse(localStorage.getItem('itens'));
+  if (!itens) {
+    return null;
+  }
+  const list = document.getElementById('list');
+  itens.forEach(element => {
+    const liElement = document.createElement('li');
+    liElement.innerHTML = element;
+    list.appendChild(liElement);
+  });
+};
+
+loadingItens();
