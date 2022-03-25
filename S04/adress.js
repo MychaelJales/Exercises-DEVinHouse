@@ -4,7 +4,7 @@ class Endereco {
   }
 
   printAdress () {
-    const { logradouro, numero, cidade, estado, pais, cep } = this.props;
+    const { logradouro, numero, cidade, estado, pais, cep } = this.props.endereco;
     console.log(`Meu endereço: ${logradouro}, ${numero}, ${cidade}, ${estado}, ${pais}, ${cep}`);
   }
 }
