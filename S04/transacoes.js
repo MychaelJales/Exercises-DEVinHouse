@@ -6,26 +6,34 @@ class Transacoes extends Conta {
     this.props = props;
   }
 
-  get transferencia() {
-    const { conta: { saldo }, valorDaTransacao } = this.props;
-    this.props.conta.saldo = saldo - valorDaTransacao;
+  valorDaTransacao(valor) {
+    const { conta: { saldo } } = this.props;
+    this.props.conta.transacoes.push(valor);
+    this.props.conta.saldo = saldo + valor;
     const newSaldo = this.props.conta.saldo;
-    console.log(`Você fez uma transferência de ${valorDaTransacao}. Seu saldo atual é ${newSaldo}`);
-    return newSaldo;
+    if (valor > 0) {
+      console.log(`Você fez uma depósito de ${valor}. Seu saldo atual é ${newSaldo}`);
+    } else {
+      console.log(`Você fez uma transferência de ${valor}. Seu saldo atual é ${newSaldo}`);
+    }
+  }
+
+  get transferencia() {
+    const { conta: { transacoes } } = this.props;
+    const transferencias = transacoes.filter((transacao) => transacao < 0)
+    return transferencias;
   }
 
   get deposito() {
-    const { conta: { saldo }, valorDaTransacao } = this.props;
-    this.props.conta.saldo = saldo + valorDaTransacao;
-    const newSaldo = this.props.conta.saldo;
-    console.log(`Você fez uma depósito de ${valorDaTransacao}. Seu saldo atual é ${newSaldo}`);
-    return newSaldo;
+    const { conta: { transacoes } } = this.props;
+    const depositos = transacoes.filter((transacao) => transacao > 0)
+    return depositos;
   }
 }
 
 const props = {
-  valorDaTransacao: 1000,
   conta: {
+    transacoes: [],
     numero: '0000-0',
     saldo: 1000000
   },
@@ -50,6 +58,10 @@ myConta.printConta();
 myConta.printClient();
 myConta.printAdress();
 
-myConta.transferencia;
+myConta.valorDaTransacao(1000);
+myConta.valorDaTransacao(-2000);
+myConta.valorDaTransacao(1000);
 
-myConta.deposito;
+console.log(myConta.transferencia);
+
+console.log(myConta.deposito);
