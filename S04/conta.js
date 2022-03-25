@@ -1,4 +1,4 @@
-const Cliente = require('./client')
+const Cliente = require('./client');
 
 class Conta extends Cliente {
   constructor(props) {
@@ -22,7 +22,7 @@ const props = {
   },
   cliente: {
     nome: 'CJ',
-    cpf: '000.000.000-00',
+    cpf: '00000000000',
     celPhone: '(00) 00000-0000',
   },
   endereco: {
