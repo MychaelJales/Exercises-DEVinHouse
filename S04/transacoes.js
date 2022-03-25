@@ -7,8 +7,14 @@ class Transacoes extends Conta {
   }
 
   valorDaTransacao(valor) {
-    const { conta: { saldo } } = this.props;
-    this.props.conta.transacoes.push(valor);
+    const { conta: { saldo, transacoes, numero } } = this.props;
+    const newTransferencia = {
+      idDaTranferencia: transacoes.length + 1,
+      conta: numero,
+      data: new Date(),
+      valor: valor,
+    };
+    this.props.conta.transacoes.push(newTransferencia);
     this.props.conta.saldo = saldo + valor;
     const newSaldo = this.props.conta.saldo;
     if (valor > 0) {
@@ -20,13 +26,13 @@ class Transacoes extends Conta {
 
   get transferencia() {
     const { conta: { transacoes } } = this.props;
-    const transferencias = transacoes.filter((transacao) => transacao < 0)
+    const transferencias = transacoes.filter((transacao) => transacao.valor < 0)
     return transferencias;
   }
 
   get deposito() {
     const { conta: { transacoes } } = this.props;
-    const depositos = transacoes.filter((transacao) => transacao > 0)
+    const depositos = transacoes.filter((transacao) => transacao.valor > 0)
     return depositos;
   }
 }
