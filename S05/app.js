@@ -19,3 +19,35 @@ console.log(arrayQuadrados);
 const arrayTest = arrayQuadrados.filter((num)=> num > 30);
 
 console.log(arrayTest);
+
+// exercício 3
+
+const response2 = document.getElementById('response2');
+const response21 = document.getElementById('response21');
+const btn2 = document.getElementById('btn2');
+const input2 = document.getElementById('input2');
+
+const produtos = [
+  { nome: 'arroz', preco: 9 },
+  { nome: 'feijao', preco: 12 },
+  { nome: 'batata', preco: 8 },
+  { nome: 'macarrao', preco: 5 },
+];
+
+const findProduct = () => {
+  const produtoEncontrado = produtos.find(({ nome }) => nome === input2.value);
+  if (produtoEncontrado) {
+    response2.innerText = `Valor: ${produtoEncontrado.preco} Reais`
+  } else {
+    response2.innerText = 'Produto não encontrado';
+  }
+};
+
+const reducer = () => {
+  const total = produtos.reduce((acc, cur) => acc + cur.preco, 0);
+  response21.innerText = `Valor total de ${total} Reais`
+};
+
+reducer();
+
+btn2.addEventListener('click', findProduct);
