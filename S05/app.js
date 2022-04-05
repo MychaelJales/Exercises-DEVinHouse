@@ -1,5 +1,6 @@
 import Pessoa from "./Pessoa.js";
-import { somaTudo, novoArray } from "./utils.js";
+import Produto from "./Produto.js";
+import { somaTudo, novoArray, calculaTotal } from "./utils.js";
 
 const response1 = document.getElementById('response1');
 const btn1 = document.getElementById('btn1');
@@ -89,3 +90,12 @@ const euEspero = async () => {
 
 euNaoEspero();
 euEspero();
+
+// exercicio 8
+
+const arroz = new Produto('arroz', 3, 9);
+const feijao = new Produto('feijao', 2, 12);
+const batata = new Produto('batata', 4, 8);
+const macarrao = new Produto('macarrao', 1, 5);
+const total = calculaTotal(arroz, feijao, batata, macarrao);
+console.log(total);
