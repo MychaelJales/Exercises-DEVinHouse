@@ -68,3 +68,24 @@ console.log(somaTudo(1, 2, 3, 4, 5, 6, 7));
 //exercicio 6
 
 console.log(novoArray([1, 2, 3], [4, 5, 6]));
+
+
+//exercicio 7
+
+const aguarda3Segundos = async () => {
+  await new Promise(resolve => setTimeout(resolve, 3000))
+  console.log('Funçaõ diz: Terminei!');
+};
+
+const euNaoEspero = () => {
+  aguarda3Segundos()
+  console.log('Eu não espero');
+};
+
+const euEspero = async () => {
+   await aguarda3Segundos()
+  console.log('Eu espero');
+};
+
+euNaoEspero();
+euEspero();
