@@ -1,5 +1,5 @@
 import Pessoa from "./Pessoa.js";
-import somaTudo from "./utils.js";
+import { somaTudo, novoArray } from "./utils.js";
 
 const response1 = document.getElementById('response1');
 const btn1 = document.getElementById('btn1');
@@ -63,4 +63,8 @@ patricia.imprime();
 
 // exercício 5
 
-somaTudo(1, 2, 3, 4, 5, 6, 7);
+console.log(somaTudo(1, 2, 3, 4, 5, 6, 7));
+
+//exercicio 6
+
+console.log(novoArray([1, 2, 3], [4, 5, 6]));
