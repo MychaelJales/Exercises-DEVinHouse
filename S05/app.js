@@ -99,3 +99,21 @@ const batata = new Produto('batata', 4, 8);
 const macarrao = new Produto('macarrao', 1, 5);
 const total = calculaTotal(arroz, feijao, batata, macarrao);
 console.log(total);
+
+//exercicio 9
+
+const response3 = document.getElementById('response3');
+const btn3 = document.getElementById('btn3');
+const input3 = document.getElementById('input3');
+
+const consultaCEP = async () => {
+  try {
+    const response = await fetch(`https://viacep.com.br/ws/${input3.value}/json`);
+    const json = await response.json();
+    response3.innerText = json.localidade;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+btn3.addEventListener('click', consultaCEP);
