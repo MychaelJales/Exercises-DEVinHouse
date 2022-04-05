@@ -117,3 +117,22 @@ const consultaCEP = async () => {
 };
 
 btn3.addEventListener('click', consultaCEP);
+
+// exercicio 10
+
+const btn4 = document.getElementById('btn4');
+const img = document.getElementById('img');
+
+const trocaGatinho = async () => {
+  try {
+    const response = await fetch(`https://api.thecatapi.com/v1/images/search`);
+    const [json] = await response.json();
+    img.src = json.url;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+trocaGatinho();
+
+btn4.addEventListener('click', trocaGatinho);
