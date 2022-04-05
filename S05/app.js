@@ -1,3 +1,5 @@
+import Pessoa from "./Pessoa.js";
+
 const response1 = document.getElementById('response1');
 const btn1 = document.getElementById('btn1');
 const input1 = document.getElementById('input1');
@@ -51,3 +53,8 @@ const reducer = () => {
 reducer();
 
 btn2.addEventListener('click', findProduct);
+
+// exercício 4
+
+const patricia = new Pessoa('Patricia', '12345678901');
+patricia.imprime();
