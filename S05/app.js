@@ -1,4 +1,5 @@
 import Pessoa from "./Pessoa.js";
+import somaTudo from "./utils.js";
 
 const response1 = document.getElementById('response1');
 const btn1 = document.getElementById('btn1');
@@ -58,3 +59,8 @@ btn2.addEventListener('click', findProduct);
 
 const patricia = new Pessoa('Patricia', '12345678901');
 patricia.imprime();
+
+
+// exercício 5
+
+somaTudo(1, 2, 3, 4, 5, 6, 7);
