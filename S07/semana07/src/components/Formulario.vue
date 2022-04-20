@@ -50,6 +50,7 @@ export default {
     async buscaCep(cep) {
       try {
       const viacep = new ViaCEP()
+      
       const data = await viacep.cep(cep);
       this.end = data;
     } catch (error) {
