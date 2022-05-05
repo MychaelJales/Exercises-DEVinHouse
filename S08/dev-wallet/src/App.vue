@@ -1,8 +1,8 @@
 <template>
   <div>
     <button type="button" @click="this.controlaModal" class="btn btn-warning">Adicionar Movimentação</button>
-    <my-table :list="list"/>
-    <my-modal :visible="visible" :variant="variant" :saveItens="saveItens" :closeModal="controlaModal" />
+    <my-table :list="list" :excluirTransacao="excluirTransacao"/>
+    <my-modal :itemList="itemList" :visible="visible" :variant="variant" :saveItens="saveItens" :closeModal="controlaModal" />
   </div>
 </template>
 
@@ -21,6 +21,13 @@ export default {
       visible: false,
       variant: 'primary',
       list: [],
+      itemList: {
+        data: '',
+        titulo: '',
+        tipo: '',
+        valor: 0,
+        descricao: '',
+      },
     }
   },
   methods: {
@@ -28,8 +35,20 @@ export default {
       this.visible = !this.visible;
     },
     saveItens(item) {
-      this.list.push(item);
+      const id = Date.now()
+      this.list.push({...item, id});
+      this.itemList = {
+        data: '',
+        titulo: '',
+        tipo: '',
+        valor: 0,
+        descricao: '',
+      };
       this.visible = !this.visible;
+    },
+    excluirTransacao(itemId) {
+      const newList = this.list.filter(({id}) => id !== itemId);
+      this.list = newList;
     }
   },
 }

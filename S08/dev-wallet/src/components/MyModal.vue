@@ -14,19 +14,19 @@
             <slot>
               <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
-                <input v-model="itemList.titulo" class="form-control" id="titulo" type="text" />
+                <input v-model="itemListModal.titulo" class="form-control" id="titulo" type="text" />
               </div>
               <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição</label>
-                <input v-model="itemList.descricao" class="form-control" id="descricao" type="text" />
+                <input v-model="itemListModal.descricao" class="form-control" id="descricao" type="text" />
               </div>
               <div class="mb-3">
                 <label for="valor" class="form-label">Valor</label>
-                <input v-model.number="itemList.valor" class="form-control" id="valor" type="number" />
+                <input v-model.number="itemListModal.valor" class="form-control" id="valor" type="number" />
               </div>
               <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo</label>
-                <select v-model="itemList.tipo" class="form-select" aria-label="Default select example">
+                <select v-model="itemListModal.tipo" class="form-select" aria-label="Default select example">
                   <option selected disabled>Selecione o tipo</option>
                   <option value="+">Receita</option>
                   <option value="-">Despesa</option>
@@ -34,7 +34,7 @@
               </div>
               <div class="mb-3">
                 <label for="data" class="form-label">Data</label>
-                <input v-model="itemList.data" class="form-control" id="data" type="date" />
+                <input v-model="itemListModal.data" class="form-control" id="data" type="date" />
               </div>
             </slot>
           </div>
@@ -53,32 +53,25 @@
     props: {
       visible: Boolean,
       variant: String,
+      itemList: Object,
       closeModal: Function,
       saveItens: Function,
     },
     data(){
       return{
-        itemList: {
-          data: '',
-          titulo: '',
-          tipo: '',
-          valor: 0,
-          descricao: '',
-        },
+        itemListModal: this.itemList,
         OpenClose: this.visible,
       }
     },
     methods:{
-          OpenCloseFun(){
-            this.OpenClose = false;
-          },
     },
     watch: { 
-        visible: function(newVal, oldVal) { // watch it
-          this.OpenClose = newVal;
-          console.log('new' +newVal+ '==' +oldVal)
-        }
-      }
-
+      visible: function(newVal) { // watch it
+        this.OpenClose = newVal;
+      },
+      itemList: function(newVal) { // watch it
+        this.itemListModal = newVal;
+      },
+    }
   }
 </script>

@@ -19,7 +19,9 @@
           <td>{{item.tipo}}</td>
           <td>{{item.valor}}</td>
           <td>{{item.descricao}}</td>
-          <td></td>
+          <td>
+            <button type="button" @click="excluirTransacao(item.id)" class="btn btn-danger">Excluir</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -32,6 +34,7 @@ export default {
   name: 'MyTable',
   props: {
     list: Array,
+    excluirTransacao: Function,
   }
 }
 </script>
