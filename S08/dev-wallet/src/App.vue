@@ -3,6 +3,11 @@
     <button type="button" @click="this.controlaModal" class="btn btn-warning">Adicionar Movimentação</button>
     <my-table :list="list" :excluirTransacao="excluirTransacao"/>
     <my-modal :itemList="itemList" :visible="visible" :variant="variant" :saveItens="saveItens" :closeModal="controlaModal" />
+    <footer>
+      Receitas: R$ {{receita}}
+      Despesas: R$ {{despesas}}
+      Total: R$ {{total}}
+    </footer>
   </div>
 </template>
 
@@ -20,7 +25,11 @@ export default {
     return {
       visible: false,
       variant: 'primary',
+      despesas: 0,
+      receita: 0,
+      total: 0,
       list: [],
+      // numberItens: this.list.length,
       itemList: {
         data: '',
         titulo: '',
@@ -36,7 +45,7 @@ export default {
     },
     saveItens(item) {
       const id = Date.now()
-      this.list.push({...item, id});
+      this.list = [...this.list, {...item, id}];
       this.itemList = {
         data: '',
         titulo: '',
@@ -51,6 +60,25 @@ export default {
       this.list = newList;
     }
   },
+  watch: { 
+      list: function() { // watch it
+        this.receita = 0;
+        this.total = 0;
+        this.despesas = 0;
+        const { list } = this;
+        list.forEach(({tipo, valor}) => {
+          console.log('entrei');
+          if (tipo === '+') {
+            this.receita += valor;
+            this.total += valor;
+          }
+          if (tipo === '-') {
+            this.despesas += valor;
+            this.total -= valor;
+          }
+        });
+      },
+    }
 }
 </script>
 
