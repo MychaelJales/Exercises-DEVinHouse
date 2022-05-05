@@ -67,11 +67,11 @@ export default {
         this.despesas = 0;
         const { list } = this;
         list.forEach(({tipo, valor}) => {
-          if (tipo === '+') {
+          if (tipo === 'Receita') {
             this.receita += valor;
             this.total += valor;
           }
-          if (tipo === '-') {
+          if (tipo === 'Despesa') {
             this.despesas += valor;
             this.total -= valor;
           }
