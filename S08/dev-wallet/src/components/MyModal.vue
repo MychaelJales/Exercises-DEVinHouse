@@ -65,7 +65,7 @@
           valor: 0,
           descricao: '',
         },
-        OpenClose: this.visible
+        OpenClose: this.visible,
       }
     },
     methods:{
