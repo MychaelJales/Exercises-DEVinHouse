@@ -67,7 +67,6 @@ export default {
         this.despesas = 0;
         const { list } = this;
         list.forEach(({tipo, valor}) => {
-          console.log('entrei');
           if (tipo === '+') {
             this.receita += valor;
             this.total += valor;
