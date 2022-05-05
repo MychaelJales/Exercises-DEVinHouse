@@ -8,6 +8,7 @@
           <th>Título</th>
           <th>Tipo</th>
           <th>Valor</th>
+          <th>Descrição</th>
           <th></th>
         </tr>
       </thead>
@@ -17,6 +18,7 @@
           <td>{{item.titulo}}</td>
           <td>{{item.tipo}}</td>
           <td>{{item.valor}}</td>
+          <td>{{item.descricao}}</td>
           <td></td>
         </tr>
       </tbody>

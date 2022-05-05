@@ -1,21 +1,35 @@
 <template>
   <div>
+    <button type="button" @click="this.controlaModal" class="btn btn-warning">Adicionar Movimentação</button>
     <my-table :list="list"/>
-
+    <my-modal :visible="visible" :variant="variant" :saveItens="saveItens" :closeModal="controlaModal" />
   </div>
 </template>
 
 <script>
+import MyModal from './components/MyModal.vue';
 import MyTable from './components/MyTable.vue';
 
 export default {
   name: 'App',
   components: {
-      MyTable,
+    MyTable,
+    MyModal,
   },
   data() {
     return {
+      visible: false,
+      variant: 'primary',
       list: [],
+    }
+  },
+  methods: {
+    controlaModal() {
+      this.visible = !this.visible;
+    },
+    saveItens(item) {
+      this.list.push(item);
+      this.visible = !this.visible;
     }
   },
 }
