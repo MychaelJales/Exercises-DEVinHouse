@@ -11,6 +11,12 @@
       <h1 v-once v-text="ex02"></h1>
       <input type="text" v-model="ex02">
     </div>
+    <hr>
+    <div>
+      <p>Exercício 03</p>
+      <div v-html="html"></div>
+    </div>
+    <hr>
   </div>
 </template>
 
@@ -21,6 +27,7 @@ export default {
     return {
       ex01: '',
       ex02: 'Old',
+      html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>'
     }
   }
 }
