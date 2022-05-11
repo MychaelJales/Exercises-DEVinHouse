@@ -48,9 +48,9 @@
     <hr>
     <div>
       <p>Exercício 08</p>
-      <label for="ex08Nome">Nome</label>
+      <label for="ex08Nome" v-font-size >Nome</label>
       <input id="ex08Nome" type="text" v-model="ex08Nome">
-      <label for="ex08Idade">Idade</label>
+      <label for="ex08Idade" v-font-size>Idade</label>
       <input id="ex08Idade" type="number" v-model.number="ex08Idade">
       <button @click="adiciona" class="btn btn-primary">Adicionar</button>
       <hr>
