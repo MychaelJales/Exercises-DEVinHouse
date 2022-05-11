@@ -45,6 +45,33 @@
       <my-header :titulo="ex07"></my-header>
       <input id="ex07" type="text" v-model="ex07">
     </div>
+    <hr>
+    <div>
+      <p>Exercício 08</p>
+      <label for="ex08Nome">Nome</label>
+      <input id="ex08Nome" type="text" v-model="ex08Nome">
+      <label for="ex08Idade">Idade</label>
+      <input id="ex08Idade" type="number" v-model.number="ex08Idade">
+      <button @click="adiciona" class="btn btn-primary">Adicionar</button>
+      <hr>
+      <p>Lista:</p>
+      <table v-if="lista.length > 0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in lista" :key="item">
+            <td>{{item.ex08Nome}}</td>
+            <td>{{item.ex08Idade}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p v-else>Não há informações cadastradas</p>
+
+    </div>
   </div>
 </template>
 
@@ -61,7 +88,21 @@ export default {
       ex05: 'Label Preto',
       ex06: ['item01', 'item 02', 'item 03'],
       ex07: '',
+      ex08Nome: '',
+      ex08Idade: 0,
+      lista: [],
       html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>'
+    }
+  },
+  methods: {
+    adiciona: function() {
+      const { ex08Nome, ex08Idade } = this;
+      this.lista.push({ex08Nome, ex08Idade});
+      this.limpaCampos();
+    },
+    limpaCampos: function() {
+      this.ex08Idade = 0;
+      this.ex08Nome = '';
     }
   }
 }
