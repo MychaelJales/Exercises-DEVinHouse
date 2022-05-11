@@ -32,6 +32,12 @@
       <button @click="ex05 = 'red'">Mostrar label <span :style="{ color: 'red' }">Vermelho</span></button>
       <button @click="ex05 = 'blue'">Mostrar <span :style="{ color: 'blue' }">Outra cor</span></button>
     </div>
+    <div>
+      <p>Exercício 06</p>
+      <ul>
+        <li v-for="item in ex06" :key="item" v-text="item"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -44,6 +50,7 @@ export default {
       ex02: 'Old',
       ex04: '',
       ex05: 'Label Preto',
+      ex06: ['item01', 'item 02', 'item 03'],
       html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>'
     }
   }
