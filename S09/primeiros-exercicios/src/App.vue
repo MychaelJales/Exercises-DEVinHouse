@@ -32,17 +32,26 @@
       <button @click="ex05 = 'red'">Mostrar label <span :style="{ color: 'red' }">Vermelho</span></button>
       <button @click="ex05 = 'blue'">Mostrar <span :style="{ color: 'blue' }">Outra cor</span></button>
     </div>
+    <hr>
     <div>
       <p>Exercício 06</p>
       <ul>
         <li v-for="item in ex06" :key="item" v-text="item"></li>
       </ul>
     </div>
+    <hr>
+    <div>
+      <p>Exercício 07</p>
+      <my-header :titulo="ex07"></my-header>
+      <input id="ex07" type="text" v-model="ex07">
+    </div>
   </div>
 </template>
 
 <script>
+import MyHeader from './components/MyHeader.vue'
 export default {
+  components: { MyHeader },
   name: 'App',
   data() {
     return {
@@ -51,6 +60,7 @@ export default {
       ex04: '',
       ex05: 'Label Preto',
       ex06: ['item01', 'item 02', 'item 03'],
+      ex07: '',
       html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>'
     }
   }
