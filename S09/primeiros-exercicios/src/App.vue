@@ -72,6 +72,24 @@
       <p v-else>Não há informações cadastradas</p>
 
     </div>
+    <hr>
+    <div>
+      <p>Exercício 10</p>
+      <h3>Blackjack:</h3>
+      <button @click="novoJogo" class="btn btn-primary">Novo Jogo</button>
+      <p v-if="jogando">Você está Jogando!</p>
+      <p v-else-if="ganhou">Você Ganhou!</p>
+      <p v-else>Você perdeu!</p>
+      <hr>
+      <p>Adversário: {{ adversario }} pontos</p>
+      <p>Jogador: {{ jogador }} pontos</p>
+      <p>Jogadas Restantes: {{ jogadasRestantes }}</p>
+      <hr>
+      <p>Carta: {{ carta }}</p>
+      <button v-show="jogando" @click="novaCarta" class="btn btn-primary">Nova Carta</button>
+      <button v-show="jogando" @click="parar" class="btn btn-primary">Parar</button>
+    </div>
+    <hr>
   </div>
 </template>
 
@@ -91,18 +109,50 @@ export default {
       ex08Nome: '',
       ex08Idade: 0,
       lista: [],
-      html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>'
+      html: '<h6>Banner</h6><img src="https://softauthor.com/wp-content/uploads/2020/04/create-a-banner-hero-unit-in-css-1-1024x365.png" style="width:300px"/>',
+      adversario: 17,
+      jogador: 0,
+      jogadasRestantes: 3,
+      carta: 0,
+      jogando: true,
+      ganhou: false,
     }
   },
   methods: {
-    adiciona: function() {
+    adiciona() {
       const { ex08Nome, ex08Idade } = this;
       this.lista.push({ex08Nome, ex08Idade});
       this.limpaCampos();
     },
-    limpaCampos: function() {
+    limpaCampos() {
       this.ex08Idade = 0;
       this.ex08Nome = '';
+    },
+    novoJogo() {
+      this.jogador = 0;
+      this.jogadasRestantes = 3;
+      this.carta = 0;
+      this.jogando = true;
+    },
+    novaCarta() {
+      this.carta = Math.floor(Math.random() * 12);
+      this.jogador += this.carta;
+      this.jogadasRestantes -= 1;
+      if (this.jogadasRestantes === 0) {
+        this.testeGanhou();
+      }
+    },
+    parar() {
+      this.testeGanhou();
+    },
+    testeGanhou() {
+      if (this.jogador > this.adversario) {
+        this.ganhou = true;
+        this.jogando = false;
+      } else {
+        this.ganhou = false;
+        this.jogando = false;
+      }
     }
   }
 }
