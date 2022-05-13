@@ -1,9 +1,10 @@
 <template>
   <div>
     <div>
-      <p>Exercício 01</p>
-      <transition>
-        <header v-show="show"><h1>Apresentando H1</h1></header>
+      <p>Exercícios 01, 02 e 03</p>
+      <transition mode="out-in">
+        <header v-if="show"><h1>Apresentando H1</h1></header>
+        <span v-else>O header não está mais disponível</span>
       </transition>
       <button @click="show = !show">Alterar estado</button>
     </div>
