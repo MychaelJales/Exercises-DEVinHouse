@@ -53,6 +53,9 @@ export default {
       const { nome, idade } = this;
       const id = Date.now();
       this.lista = [...this.lista, { nome, idade, id }];
+      this.lista.sort(function (a, b) {
+        return (a.idade > b.idade) ? 1 : ((b.idade > a.idade) ? -1 : 0);
+      });
       this.nome = '';
       this.idade = 0;
     },
@@ -78,7 +81,7 @@ export default {
   opacity: 1;
 }
 
-.v-leave-active, .list-leave-active {
+.v-leave-active, .list-leave-active, .list-move {
   transition: all 2s ease;
 }
 
@@ -92,5 +95,5 @@ export default {
 
 .v-enter-active, .list-enter-active {
   transition: opacity 2s ease;
-}
+} 
 </style>
