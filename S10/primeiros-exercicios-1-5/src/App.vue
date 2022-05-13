@@ -34,6 +34,18 @@ export default {
   margin-top: 60px;
 }
 
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: all 2s ease;
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
 .v-enter-from {
   opacity: 0;
 }
